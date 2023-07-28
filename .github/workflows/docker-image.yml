@@ -30,7 +30,7 @@ jobs:
         platforms: linux/amd64
         file: Dockerfile
         push: true
-        tags: casraw/casraw/blablaland-frontend:${{ github.sha }},casraw/casraw/blablaland-frontend:latest
-        cache-from: type=registry,ref=casraw/casraw/blablaland-frontend:latest
+        tags: casraw/blablaland-frontend:${{ github.sha }},casraw/blablaland-frontend:latest
+        cache-from: type=registry,ref=casraw/blablaland-frontend:latest
         cache-to: type=inline
 
