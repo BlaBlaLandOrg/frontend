@@ -40,6 +40,6 @@ jobs:
         echo "${{ secrets.KNOWN_HOST }}" > ~/.ssh/known_hosts
     - name: Run deploy step
       run: |
-        ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "exit"
+        ssh  -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "exit"
               
 
