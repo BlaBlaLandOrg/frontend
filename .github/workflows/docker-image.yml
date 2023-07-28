@@ -33,4 +33,13 @@ jobs:
         tags: casraw/blablaland-frontend:${{ github.sha }},casraw/blablaland-frontend:latest
         cache-from: type=registry,ref=casraw/blablaland-frontend:latest
         cache-to: type=inline
+    - name: Create SSH key
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_SERVER_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.KNOWN_HOST }}" > ~/.ssh/known_hosts
+    - name: Run deploy step
+      run: |
+        ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "exit"
+              
 
