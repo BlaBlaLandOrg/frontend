@@ -30,8 +30,8 @@ jobs:
         platforms: linux/amd64
         file: Dockerfile
         push: true
-        tags: casraw/blablaland-frontend:${{ github.sha }},casraw/blablaland-frontend:latest
-        cache-from: type=registry,ref=casraw/blablaland-frontend:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/blablaland-frontend:${{ github.sha }},${{ secrets.DOCKERHUB_USERNAME }}/blablaland-frontend:latest
+        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/blablaland-frontend:latest
         cache-to: type=inline
     - name: Create SSH key
       run: |
