@@ -1,0 +1,24 @@
+<div class="content">
+  <span class="mat-h1">I want</span>
+
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let companion of companions" [value]="companion.id">
+        {{ companion.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span class="mat-h1">to</span>
+
+
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let setting of settings" [value]="setting.id">
+        {{ setting.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Start talking!</button>
+</div>
