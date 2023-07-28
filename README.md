@@ -1,2 +1,2 @@
 # frontend
-BlaBlaLands Frontend
+BlaBlaLands beautiful Frontend
