@@ -14,6 +14,7 @@ import { CreateCompanionComponent } from './create-companion/create-companion.co
 import { HttpClientModule } from '@angular/common/http';
 import { CompanionComponent } from './companion/companion.component';
 import { HomeComponent } from './home/home.component';
+import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeComponent } from './home/home.component';
     CreateCompanionComponent,
     CompanionComponent,
     HomeComponent,
+    SpeechBubbleComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,15 @@
-<div class="image-container">
-  <img class="character" src="assets/Guy.png" />
-  <img class="mouth" [src]="mouthSource" />
-</div>
+<div class="container">
+  <div class="image-container">
+    <img class="character" src="assets/Guy.png" />
+    <img class="mouth" [src]="mouthSource" />
+  </div>
 
-<audio
-  #audioPlayer
-  controls
-  (timeupdate)="onTimeUpdate($event)"
-  (play)="onPlay($event)"
->
-  <source src="assets/sam.wav" type="audio/mpeg" />
-</audio>
+  <audio
+    #audioPlayer
+    controls
+    (timeupdate)="onTimeUpdate($event)"
+    (play)="onPlay($event)"
+  >
+    <source src="assets/sam.wav" type="audio/mpeg" />
+  </audio>
+</div>
