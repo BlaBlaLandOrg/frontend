@@ -6,5 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./speech-bubble.component.scss'],
 })
 export class SpeechBubbleComponent {
-  @Input() public position = 'speech left';
+  @Input() position = 'speech left';
+  @Input() text = '...';
+
 }
