@@ -4,11 +4,20 @@
     align-items: center;
     gap: 2rem;
     padding: 2rem;
+
+    &__description {
+        display: flex;
+        gap: 1rem;
+    }
 }
 
 ngx-mic-recorder {
     width: 64px;
     overflow: hidden;
+}
+
+::ng-deep.ngx-mic-recorder__start-stop {
+    background-color: #7b1fa2 !important;
 }
 
 .recorder {

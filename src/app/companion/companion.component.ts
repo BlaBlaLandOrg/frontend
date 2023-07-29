@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { BackendService, Character } from '../data-access/backend.service';
 import { ConversationService } from '../data-access/conversation.service';
+import { NgxMicRecorderComponent } from 'ngx-mic-recorder';
 
 @Component({
   selector: 'app-companion',
@@ -9,6 +10,7 @@ import { ConversationService } from '../data-access/conversation.service';
 })
 export class CompanionComponent {
   audio?: Blob;
+  recorderInitialized = false;
   companionText = '...';
   userText = '...';
   companion: Character = {
@@ -30,15 +32,10 @@ export class CompanionComponent {
     if (this.conversationService.currentCompanion) this.companion = this.conversationService.currentCompanion;
   }
 
-  save(event: Blob) {
-    this.audio = event;
-    this.send();
-  }
-
-  send() {
-    if (this.audio) {
+  send(event: Blob) {
+    if (this.recorderInitialized && event) {
       const formData = new FormData();
-      formData.append('audio_file', this.audio, 'randomIrgendwas');
+      formData.append('audio_file', event, 'randomIrgendwas');
 
       this.backendService.sendAudio(formData).subscribe(res => {
         this.userText = res.text;

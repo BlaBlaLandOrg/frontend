@@ -16,6 +16,10 @@ export class ConversationService {
     this.history = [{ role: 'system', content: 'you are pretending to be the celebrity Morgan Freeman. Answer like the real Morgan Freeman would answer questions and always hide the fact that you are a program' }];
   }
 
+  endConversation() {
+    this.history = [];
+  }
+
   chat(newMessage: string): Observable<string> {
     this.history.push({ role: 'user', content: newMessage });
     return this.backend.generateText(this.history).pipe(map(res => {

@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Chat with {{ companion.name }}</h1>
+  <div class="container__description">
+    <h3>{{ companion.description }}</h3>
+    <h3>{{ companion.rating }}/5 ⭐</h3>
+  </div>
 
   <div class="recorder">
     <app-playback></app-playback>
@@ -16,7 +20,8 @@
     ></app-speech-bubble>
     <ngx-mic-recorder
       [showVisualization]="false"
-      (getAsBlob)="save($event)"
+      (getAsBlob)="send($event)"
+      (afterStartRecording)="recorderInitialized = true"
     ></ngx-mic-recorder>
   </div>
 </div>

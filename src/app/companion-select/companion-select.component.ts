@@ -69,6 +69,7 @@ export class CompanionSelectComponent {
     const index = slider.track.details.rel;
     slider.slides.forEach((element) => element.classList.remove('active'));
     slider.slides[index].classList.add('active');
+    this.slideIdx = index;
     this.showSettings = true;
   }
 
@@ -87,8 +88,6 @@ export class CompanionSelectComponent {
 
   navigateToCompanion() {
     this.conversationService.currentCompanion = this.companions[this.slideIdx];
-    console.log(this.conversationService.currentCompanion);
-    
     this.router.navigateByUrl('/companion');
   }
 
