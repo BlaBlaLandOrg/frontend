@@ -1,4 +1,6 @@
 <div class="container">
   <app-playback></app-playback>
+
+  <ngx-mic-recorder (getAsMp3)="saveAsMp3($event)"></ngx-mic-recorder>
   <app-speech-bubble></app-speech-bubble>
 </div>

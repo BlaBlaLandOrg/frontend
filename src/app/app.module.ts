@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CompanionComponent } from './companion/companion.component';
 import { HomeComponent } from './home/home.component';
 import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
+import { NgxMicRecorderModule } from 'ngx-mic-recorder';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    NgxMicRecorderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
