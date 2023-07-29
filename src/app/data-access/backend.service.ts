@@ -16,4 +16,8 @@ export class BackendService {
   getAllCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>('api/list-all-characters');
   }
+
+  sendAudio(audio: FormData) {
+    return this.http.post('api/transcribe-audio', audio);
+  }
 }

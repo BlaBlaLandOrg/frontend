@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from '../data-access/backend.service';
 
 @Component({
   selector: 'app-companion',
@@ -6,7 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./companion.component.scss'],
 })
 export class CompanionComponent {
-  saveAsMp3(event: any) {
+  private audio: Blob | null = null;
+
+  constructor(private backendService: BackendService) {}
+
+  save(event: Blob) {
     console.log(event);
+    this.audio = event;
+  }
+  send() {
+    if (this.audio) {
+      const formData = new FormData();
+      formData.append('audio_file', this.audio);
+
+      this.backendService.sendAudio(formData).subscribe((x) => console.log(x));
+    }
   }
 }
