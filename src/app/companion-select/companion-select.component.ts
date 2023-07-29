@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from "keen-slider"
 import { Companions, Setting } from '../models/models';
+import { BackendService } from '../data-access/backend.service';
 
 @Component({
   selector: 'app-companion-select',
@@ -32,6 +33,8 @@ export class CompanionSelectComponent {
     { id: 'support', name: 'give me moral support' },
   ];
 
+  constructor(private backend: BackendService) {}
+
   ngAfterViewInit() {
     if (this.sliderRef) {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
@@ -46,6 +49,7 @@ export class CompanionSelectComponent {
         slideChanged: (slider) => this.updateSlide(slider)
       })
     }
+    this.backend.getAllCharacters();
   }
 
   updateSlide(slider: KeenSliderInstance) {

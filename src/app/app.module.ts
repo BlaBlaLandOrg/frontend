@@ -11,11 +11,18 @@ import { CompanionSelectComponent } from './companion-select/companion-select.co
 import { PlaybackComponent } from './playback/playback.component';
 import { MatCardModule } from '@angular/material/card';
 import { CreateCompanionComponent } from './create-companion/create-companion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, CompanionSelectComponent, PlaybackComponent, CreateCompanionComponent],
+  declarations: [
+    AppComponent,
+    CompanionSelectComponent,
+    PlaybackComponent,
+    CreateCompanionComponent,
+  ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatButtonModule,

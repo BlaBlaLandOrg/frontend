@@ -88,7 +88,8 @@
               "browserTarget": "BlaBlaLand:build:production"
             },
             "development": {
-              "browserTarget": "BlaBlaLand:build:development"
+              "browserTarget": "BlaBlaLand:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

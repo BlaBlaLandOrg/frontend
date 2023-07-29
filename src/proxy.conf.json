@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "http://blablaland.tech:8000/",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
