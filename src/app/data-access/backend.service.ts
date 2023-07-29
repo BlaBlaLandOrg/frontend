@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
@@ -18,6 +18,7 @@ export class BackendService {
   }
 
   sendAudio(audio: FormData) {
+    const headers = new HttpHeaders().set('Content-Type', 'undefined');
     return this.http.post('api/transcribe-audio', audio);
   }
 }
