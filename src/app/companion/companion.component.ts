@@ -18,7 +18,7 @@ export class CompanionComponent {
   send() {
     if (this.audio) {
       const formData = new FormData();
-      formData.append('audio_file', this.audio);
+      formData.append('audio_file', this.audio, 'randomIrgendwas');
 
       this.backendService.sendAudio(formData).subscribe((x) => console.log(x));
     }
