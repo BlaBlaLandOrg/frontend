@@ -8,12 +8,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanionSelectComponent } from './companion-select/companion-select.component';
+import { PlaybackComponent } from './playback/playback.component';
 import { MatCardModule } from '@angular/material/card';
+import { CreateCompanionComponent } from './create-companion/create-companion.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
-  declarations: [AppComponent, CompanionSelectComponent],
+  declarations: [
+    AppComponent,
+    CompanionSelectComponent,
+    PlaybackComponent,
+    CreateCompanionComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -23,9 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
