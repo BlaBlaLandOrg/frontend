@@ -33,7 +33,7 @@ export class CompanionSelectComponent {
     { id: 'support', name: 'give me moral support' },
   ];
 
-  constructor(private backend: BackendService) {}
+  constructor(private backend: BackendService) { }
 
   ngAfterViewInit() {
     if (this.sliderRef) {
@@ -57,6 +57,14 @@ export class CompanionSelectComponent {
     slider.slides.forEach(element => element.classList.remove('active'));
     slider.slides[index].classList.add('active');
     this.showSettings = true;
+  }
+
+  next() {
+    this.slider?.next();
+  }
+
+  prev() {
+    this.slider?.prev();
   }
 
   ngOnDestroy() {

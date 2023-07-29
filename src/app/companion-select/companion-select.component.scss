@@ -53,6 +53,13 @@ $my-palette: mat.define-palette(mat.$purple-palette);
   }
 }
 
+.character-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
 .hidden {
   opacity: 0;
 }
