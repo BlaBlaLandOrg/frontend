@@ -3,18 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
 interface Character {
-  "name": "string",
-  "rating": 0
+  name: 'string';
+  rating: 0;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BackendService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>('api/list-all-characters')
+    return this.http.get<Character[]>('api/list-all-characters');
   }
 }

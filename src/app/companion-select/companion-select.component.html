@@ -32,6 +32,8 @@
   </div>
 
   <div [class.hidden]="!showSubmit" class="fadeIn">
-    <button mat-raised-button color="primary">Start talking!</button>
+    <button mat-raised-button color="primary" (click)="navigateToCompanion()">
+      Start talking!
+    </button>
   </div>
 </div>
