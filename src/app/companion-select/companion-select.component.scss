@@ -31,12 +31,11 @@ $my-palette: mat.define-palette(mat.$purple-palette);
     );
   }
 
-  .active {
-    .mat-mdc-card {
-      background-color: mat.get-color-from-palette($my-palette, 'darker');
-    }
+  .active.mat-mdc-card {
+    background-color: mat.get-color-from-palette($my-palette, "darker");
   }
 }
+
 .companion {
   display: flex;
   gap: 1rem;
@@ -52,4 +51,12 @@ $my-palette: mat.define-palette(mat.$purple-palette);
   &__name {
     margin: auto;
   }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.fadeIn {
+    transition: opacity 0.5s;
 }
