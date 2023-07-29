@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { CompanionSelectComponent } from './companion-select/companion-select.component';
 import { PlaybackComponent } from './playback/playback.component';
 import { MatCardModule } from '@angular/material/card';
+import { CreateCompanionComponent } from './create-companion/create-companion.component';
 
 @NgModule({
-  declarations: [AppComponent, CompanionSelectComponent, PlaybackComponent],
+  declarations: [AppComponent, CompanionSelectComponent, PlaybackComponent, CreateCompanionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
