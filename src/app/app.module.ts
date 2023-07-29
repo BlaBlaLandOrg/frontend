@@ -12,6 +12,8 @@ import { PlaybackComponent } from './playback/playback.component';
 import { MatCardModule } from '@angular/material/card';
 import { CreateCompanionComponent } from './create-companion/create-companion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CompanionComponent } from './companion/companion.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     CompanionSelectComponent,
     PlaybackComponent,
     CreateCompanionComponent,
+    CompanionComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

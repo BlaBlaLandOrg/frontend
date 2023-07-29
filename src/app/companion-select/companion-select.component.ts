@@ -1,16 +1,19 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import KeenSlider, { KeenSliderInstance } from "keen-slider"
+import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { Companions, Setting } from '../models/models';
 import { BackendService } from '../data-access/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-companion-select',
   templateUrl: './companion-select.component.html',
   styleUrls: [
-    '../../../node_modules/keen-slider/keen-slider.min.css', './companion-select.component.scss'],
+    '../../../node_modules/keen-slider/keen-slider.min.css',
+    './companion-select.component.scss',
+  ],
 })
 export class CompanionSelectComponent {
-  @ViewChild("sliderRef") sliderRef?: ElementRef<HTMLElement>;
+  @ViewChild('sliderRef') sliderRef?: ElementRef<HTMLElement>;
   slider?: KeenSliderInstance;
   slideIdx = 0;
   showSettings = false;
@@ -24,7 +27,7 @@ export class CompanionSelectComponent {
     { id: 'football', name: 'Football Coach', avatar: 'football.png' },
   ];
 
-  iterator = Array(20).fill(1)
+  iterator = Array(20).fill(1);
 
   settings: Setting[] = [
     { id: 'teacher', name: 'be my teacher' },
@@ -33,33 +36,37 @@ export class CompanionSelectComponent {
     { id: 'support', name: 'give me moral support' },
   ];
 
-  constructor(private backend: BackendService) {}
+  constructor(private backend: BackendService, private router: Router) {}
 
   ngAfterViewInit() {
     if (this.sliderRef) {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
         loop: true,
-        mode: "free-snap",
+        mode: 'free-snap',
         slides: {
           perView: 3,
           spacing: 15,
-          origin: 'center'
+          origin: 'center',
         },
         dragSpeed: 0.7,
-        slideChanged: (slider) => this.updateSlide(slider)
-      })
+        slideChanged: (slider) => this.updateSlide(slider),
+      });
     }
     this.backend.getAllCharacters();
   }
 
   updateSlide(slider: KeenSliderInstance) {
     const index = slider.track.details.rel;
-    slider.slides.forEach(element => element.classList.remove('active'));
+    slider.slides.forEach((element) => element.classList.remove('active'));
     slider.slides[index].classList.add('active');
     this.showSettings = true;
   }
 
+  navigateToCompanion() {
+    this.router.navigateByUrl('/companion');
+  }
+
   ngOnDestroy() {
-    if (this.slider) this.slider.destroy()
+    if (this.slider) this.slider.destroy();
   }
 }
