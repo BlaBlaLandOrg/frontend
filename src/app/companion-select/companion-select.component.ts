@@ -22,6 +22,7 @@ interface Setting {
 export class CompanionSelectComponent {
   @ViewChild("sliderRef") sliderRef?: ElementRef<HTMLElement>;
   slider?: KeenSliderInstance;
+  slideIdx = 0;
 
   companions: Companions[] = [
     { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
@@ -48,10 +49,19 @@ export class CompanionSelectComponent {
         slides: {
           perView: 3,
           spacing: 15,
+          origin: 'center'
         },
         dragSpeed: 0.7,
+        slideChanged: this.updateSlide
       })
+      this.updateSlide(this.slider)
     }
+  }
+
+  updateSlide(slider: KeenSliderInstance) {
+    const index = slider.track.details.rel;
+    slider.slides.forEach(element => element.classList.remove('active'));
+    slider.slides[index].classList.add('active');
   }
 
   ngOnDestroy() {
