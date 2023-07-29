@@ -14,6 +14,7 @@ export class CompanionComponent {
   save(event: Blob) {
     console.log(event);
     this.audio = event;
+    this.send();
   }
   send() {
     if (this.audio) {

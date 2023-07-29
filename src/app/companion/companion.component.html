@@ -8,7 +8,6 @@
     <app-speech-bubble [position]="'speech right'"></app-speech-bubble>
     <ngx-mic-recorder
       [showVisualization]="false"
-      (afterStopRecording)="send()"
       (getAsBlob)="save($event)"
     ></ngx-mic-recorder>
   </div>
