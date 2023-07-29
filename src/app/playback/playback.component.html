@@ -2,7 +2,13 @@
   <img class="character" src="assets/Guy.png" />
   <img class="mouth" [src]="mouthSource" />
 </div>
+<div>hello</div>
 
-<audio #audioPlayer controls (timeupdate)="onTimeUpdate($event)">
+<audio
+  #audioPlayer
+  controls
+  (timeupdate)="onTimeUpdate($event)"
+  (play)="onPlay($event)"
+>
   <source src="assets/sam.wav" type="audio/mpeg" />
 </audio>
