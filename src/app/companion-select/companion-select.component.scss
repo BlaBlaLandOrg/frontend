@@ -22,6 +22,7 @@ $my-palette: mat.define-palette(mat.$purple-palette);
     position: absolute;
     left: 0;
     top: 0;
+    pointer-events: none;
     background: linear-gradient(
       to right,
       #303030,
@@ -51,6 +52,10 @@ $my-palette: mat.define-palette(mat.$purple-palette);
   &__name {
     margin: auto;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .character-select {
@@ -65,5 +70,5 @@ $my-palette: mat.define-palette(mat.$purple-palette);
 }
 
 .fadeIn {
-    transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }

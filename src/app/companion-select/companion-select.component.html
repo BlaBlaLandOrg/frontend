@@ -5,9 +5,10 @@
     <button mat-icon-button (click)="prev()"><mat-icon>arrow_left</mat-icon></button>
     <div class="keen-slider" #sliderRef>
       <mat-card
-        *ngFor="let companion of companions"
+        *ngFor="let companion of companions; index as index"
         class="keen-slider__slide companion"
         color="primary"
+        (click)="moveToIdx(index)"
       >
         <mat-card-content color="primary">
           <img class="companion__image" src="assets/{{ companion.avatar }}" />

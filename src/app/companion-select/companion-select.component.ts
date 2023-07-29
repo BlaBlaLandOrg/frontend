@@ -70,6 +70,11 @@ export class CompanionSelectComponent {
     this.slider?.prev();
   }
 
+  moveToIdx(index: number) {
+    this.slider?.moveToIdx(index);
+    this.slider?.emit('slideChanged');
+  }
+
   navigateToCompanion() {
     this.router.navigateByUrl('/companion');
   }
