@@ -9,9 +9,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanionSelectComponent } from './companion-select/companion-select.component';
+import { PlaybackComponent } from './playback/playback.component';
 
 @NgModule({
-  declarations: [AppComponent, CompanionSelectComponent],
+  declarations: [AppComponent, CompanionSelectComponent, PlaybackComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

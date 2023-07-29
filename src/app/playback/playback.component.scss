@@ -1,0 +1,24 @@
+.image-container {
+  position: relative;
+}
+
+.character,
+.mouth {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.character {
+  height: 300px;
+  width: auto;
+  z-index: 1; /* Set a lower z-index for the bottom image */
+}
+
+.mouth {
+  z-index: 2; /* Set a higher z-index for the top image */
+  top: 205px;
+  left: 85px;
+  height: 50px;
+  width: auto;
+}
