@@ -1,16 +1,21 @@
 <div class="content">
   <span class="mat-h1">I want</span>
 
-  <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let companion of companions" [value]="companion.id">
-        {{ companion.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="keen-slider" #sliderRef>
+    <div *ngFor="let companion of companions" class="keen-slider__slide">
+      <mat-card class="companion">
+        <mat-card-content>
+          <img
+            class="companion__image"
+            src="assets/{{companion.avatar}}"
+          />
+        </mat-card-content>
+        <mat-card-footer class="companion__name">{{companion.name}}</mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
 
   <span class="mat-h1">to</span>
-
 
   <mat-form-field>
     <mat-select>
