@@ -1,17 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from "keen-slider"
-
-interface Companions {
-  name: string;
-  id: string;
-  avatar?: string;
-}
-
-interface Setting {
-  name: string;
-  id: string;
-  prompt?: string;
-}
+import { Companions, Setting } from '../models/models';
 
 @Component({
   selector: 'app-companion-select',
@@ -23,6 +12,8 @@ export class CompanionSelectComponent {
   @ViewChild("sliderRef") sliderRef?: ElementRef<HTMLElement>;
   slider?: KeenSliderInstance;
   slideIdx = 0;
+  showSettings = false;
+  showSubmit = false;
 
   companions: Companions[] = [
     { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
@@ -52,9 +43,8 @@ export class CompanionSelectComponent {
           origin: 'center'
         },
         dragSpeed: 0.7,
-        slideChanged: this.updateSlide
+        slideChanged: (slider) => this.updateSlide(slider)
       })
-      this.updateSlide(this.slider)
     }
   }
 
@@ -62,6 +52,7 @@ export class CompanionSelectComponent {
     const index = slider.track.details.rel;
     slider.slides.forEach(element => element.classList.remove('active'));
     slider.slides[index].classList.add('active');
+    this.showSettings = true;
   }
 
   ngOnDestroy() {
