@@ -8,6 +8,7 @@ import { BackendService } from '../data-access/backend.service';
 })
 export class CompanionComponent {
   private audio: Blob | null = null;
+  text = 'enter conversation here';
 
   constructor(private backendService: BackendService) {}
 
@@ -16,6 +17,7 @@ export class CompanionComponent {
     this.audio = event;
     this.send();
   }
+
   send() {
     if (this.audio) {
       const formData = new FormData();
@@ -23,5 +25,10 @@ export class CompanionComponent {
 
       this.backendService.sendAudio(formData).subscribe((x) => console.log(x));
     }
+  }
+
+  chat() {
+    console.log(this.text);
+    this.backendService.conversation(this.text)
   }
 }

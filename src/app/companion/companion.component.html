@@ -11,4 +11,9 @@
       (getAsBlob)="save($event)"
     ></ngx-mic-recorder>
   </div>
+
+  <div>
+    <input type="text" [(ngModel)]="text">
+    <button mat-button (click)="chat()">send</button>
+  </div>
 </div>

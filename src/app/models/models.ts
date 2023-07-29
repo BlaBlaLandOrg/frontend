@@ -12,6 +12,6 @@ export interface Setting {
 }
 
 export interface message {
-    role: 'system' | 'user';
+    role: 'system' | 'assistant' | 'user';
     content: string;
 }

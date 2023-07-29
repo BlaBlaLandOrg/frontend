@@ -16,6 +16,7 @@ import { CompanionComponent } from './companion/companion.component';
 import { HomeComponent } from './home/home.component';
 import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
 import { NgxMicRecorderModule } from 'ngx-mic-recorder';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgxMicRecorderModule } from 'ngx-mic-recorder';
     MatIconModule,
     MatCardModule,
     NgxMicRecorderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
