@@ -1,8 +1,10 @@
 .image-container {
   position: relative;
+  width: max-content;
+  height: max-content;
+  margin: auto;
 }
 
-.character,
 .mouth {
   position: absolute;
   top: 0;
@@ -12,11 +14,9 @@
 .character {
   height: 300px;
   width: auto;
-  z-index: -2; /* Set a lower z-index for the bottom image */
 }
 
 .mouth {
-  z-index: -1; /* Set a higher z-index for the top image */
   top: 150px;
   left: 40px;
   height: 150px;
