@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
-import { Companions, Setting } from '../models/models';
+import { Companion, Setting } from '../models/models';
 import { BackendService } from '../data-access/backend.service';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class CompanionSelectComponent {
   showSettings = false;
   showSubmit = false;
 
-  companions: Companions[] = [
+  companions: Companion[] = [
     { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
     { id: 'beach', name: 'Hot Beach Guy', avatar: 'beach.png' },
     { id: 'librarian', name: 'Whispering Librarian', avatar: 'librarian.png' },

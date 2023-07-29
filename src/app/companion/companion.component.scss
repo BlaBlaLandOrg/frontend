@@ -4,3 +4,14 @@
     align-items: center;
     gap: 2rem;
 }
+
+ngx-mic-recorder {
+    width: 64px;
+    overflow: hidden;
+}
+
+.recorder {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}

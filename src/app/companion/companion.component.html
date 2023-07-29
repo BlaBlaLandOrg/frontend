@@ -1,8 +1,15 @@
 <div class="container">
-  <button mat-button (click)="send()"></button>
-  <app-speech-bubble [position]="'speech right'"></app-speech-bubble>
-  <app-playback></app-playback>
+  <div class="recorder">
+    <app-playback></app-playback>
+    <app-speech-bubble [position]="'speech left'"></app-speech-bubble>
+  </div>
 
-  <ngx-mic-recorder (getAsBlob)="save($event)"></ngx-mic-recorder>
-  <app-speech-bubble></app-speech-bubble>
+  <div class="recorder">
+    <app-speech-bubble [position]="'speech right'"></app-speech-bubble>
+    <ngx-mic-recorder
+      [showVisualization]="false"
+      (afterStopRecording)="send()"
+      (getAsBlob)="save($event)"
+    ></ngx-mic-recorder>
+  </div>
 </div>
