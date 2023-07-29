@@ -1,11 +1,19 @@
 <div class="container">
+  <h1>Chat with {{ companion.name }}</h1>
+
   <div class="recorder">
     <app-playback></app-playback>
-    <app-speech-bubble [position]="'speech left'" [text]="companionText"></app-speech-bubble>
+    <app-speech-bubble
+      [position]="'speech left'"
+      [text]="companionText"
+    ></app-speech-bubble>
   </div>
 
   <div class="recorder">
-    <app-speech-bubble [position]="'speech right'" [text]="userText"></app-speech-bubble>
+    <app-speech-bubble
+      [position]="'speech right'"
+      [text]="userText"
+    ></app-speech-bubble>
     <ngx-mic-recorder
       [showVisualization]="false"
       (getAsBlob)="save($event)"

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BackendService } from './backend.service';
+import { BackendService, Character } from './backend.service';
 import { Message } from '../models/models';
 import { Observable, map } from 'rxjs';
 
@@ -8,11 +8,12 @@ import { Observable, map } from 'rxjs';
 })
 export class ConversationService {
   history: Message[] = [];
+  public currentCompanion?: Character;
 
   constructor(private backend: BackendService) { }
 
   initConversation() {
-    this.history = [{ role: 'system', content: 'you are a character program pretending to be Morgan Freeman' }];
+    this.history = [{ role: 'system', content: 'you are pretending to be the celebrity Morgan Freeman. Answer like the real Morgan Freeman would answer questions and always hide the fact that you are a program' }];
   }
 
   chat(newMessage: string): Observable<string> {

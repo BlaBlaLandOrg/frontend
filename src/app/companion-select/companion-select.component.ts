@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { Companion, Setting } from '../models/models';
-import { BackendService } from '../data-access/backend.service';
+import { BackendService, Character } from '../data-access/backend.service';
 import { Router } from '@angular/router';
+import { ConversationService } from '../data-access/conversation.service';
 
 @Component({
   selector: 'app-companion-select',
@@ -18,16 +19,15 @@ export class CompanionSelectComponent {
   slideIdx = 0;
   showSettings = false;
   showSubmit = false;
+  companions: Character[] = [];
 
-  companions: Companion[] = [
-    { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
-    { id: 'beach', name: 'Hot Beach Guy', avatar: 'beach.png' },
-    { id: 'librarian', name: 'Whispering Librarian', avatar: 'librarian.png' },
-    { id: 'grandma', name: 'My Grandma', avatar: 'grandma.png' },
-    { id: 'football', name: 'Football Coach', avatar: 'football.png' },
-  ];
-
-  iterator = Array(20).fill(1);
+  // companions: Companion[] = [
+  //   { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
+  //   { id: 'beach', name: 'Hot Beach Guy', avatar: 'beach.png' },
+  //   { id: 'librarian', name: 'Whispering Librarian', avatar: 'librarian.png' },
+  //   { id: 'grandma', name: 'My Grandma', avatar: 'grandma.png' },
+  //   { id: 'football', name: 'Football Coach', avatar: 'football.png' },
+  // ];
 
   settings: Setting[] = [
     { id: 'teacher', name: 'be my teacher' },
@@ -36,9 +36,15 @@ export class CompanionSelectComponent {
     { id: 'support', name: 'give me moral support' },
   ];
 
-  constructor(private backend: BackendService, private router: Router) { }
+  constructor(private backend: BackendService, private router: Router, private conversationService: ConversationService) { }
 
   ngAfterViewInit() {
+    this.backend.getAllCharacters().subscribe(characters => { this.companions = characters; this.initSlider() });
+  }
+
+  initSlider() {
+    console.log(this.companions);
+
     if (this.sliderRef) {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
         loop: true,
@@ -51,8 +57,12 @@ export class CompanionSelectComponent {
         dragSpeed: 0.7,
         slideChanged: (slider) => this.updateSlide(slider),
       });
+
+      setTimeout(() => {
+        //requires re-render after init
+        this.slider?.update();
+      }, 0)
     }
-    this.backend.getAllCharacters();
   }
 
   updateSlide(slider: KeenSliderInstance) {
@@ -76,6 +86,9 @@ export class CompanionSelectComponent {
   }
 
   navigateToCompanion() {
+    this.conversationService.currentCompanion = this.companions[this.slideIdx];
+    console.log(this.conversationService.currentCompanion);
+    
     this.router.navigateByUrl('/companion');
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BackendService } from '../data-access/backend.service';
+import { BackendService, Character } from '../data-access/backend.service';
 import { ConversationService } from '../data-access/conversation.service';
 
 @Component({
@@ -8,14 +8,26 @@ import { ConversationService } from '../data-access/conversation.service';
   styleUrls: ['./companion.component.scss'],
 })
 export class CompanionComponent {
-  audio: Blob | null = null;
+  audio?: Blob;
   companionText = '...';
   userText = '...';
+  companion: Character = {
+    id: 'test',
+    name: 'characterName',
+    avatar_url: 'avatar',
+    description: 'description',
+    labels: [],
+    rating: 3,
+    voice_schema: {
+      name: 'test'
+    }
+  };
 
   constructor(private backendService: BackendService, private conversationService: ConversationService) { }
 
   ngOnInit() {
     this.conversationService.initConversation();
+    if (this.conversationService.currentCompanion) this.companion = this.conversationService.currentCompanion;
   }
 
   save(event: Blob) {

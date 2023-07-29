@@ -4,9 +4,16 @@ import { Observable, map, tap } from 'rxjs';
 import { Message } from '../models/models';
 import { ConversationService } from './conversation.service';
 
-interface Character {
-  name: 'string';
-  rating: 0;
+export interface Character {
+  id: string,
+  name: string,
+  avatar_url: string,
+  description: string,
+  labels: string[],
+  rating: number,
+  voice_schema: {
+    name: string
+  }
 }
 interface Text {
   text: 'string';
@@ -19,7 +26,7 @@ export class BackendService {
   constructor(private http: HttpClient) { }
 
   getAllCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>('api/list-all-characters');
+    return this.http.get<Character[]>('api/list-all-character');
   }
 
   sendAudio(audio: FormData): Observable<Text> {

@@ -2,7 +2,9 @@
   <span class="mat-h1">I want</span>
 
   <div class="character-select">
-    <button mat-icon-button (click)="prev()"><mat-icon>arrow_left</mat-icon></button>
+    <button mat-icon-button (click)="prev()">
+      <mat-icon>arrow_left</mat-icon>
+    </button>
     <div class="keen-slider" #sliderRef>
       <mat-card
         *ngFor="let companion of companions; index as index"
@@ -10,15 +12,20 @@
         color="primary"
         (click)="moveToIdx(index)"
       >
-        <mat-card-content color="primary">
-          <img class="companion__image" src="assets/{{ companion.avatar }}" />
-        </mat-card-content>
-        <mat-card-footer class="companion__name">{{
+        <mat-card-header class="companion__name">{{
           companion.name
+        }}</mat-card-header>
+        <mat-card-content color="primary">
+          <img class="companion__image" [src]="companion.avatar_url" />
+        </mat-card-content>
+        <mat-card-footer class="companion__description">{{
+          companion.description
         }}</mat-card-footer>
       </mat-card>
     </div>
-    <button mat-icon-button (click)="next()"><mat-icon>arrow_right</mat-icon></button>
+    <button mat-icon-button (click)="next()">
+      <mat-icon>arrow_right</mat-icon>
+    </button>
   </div>
   <div class="content fadeIn" [class.hidden]="!showSettings">
     <span class="mat-h1">to</span>
