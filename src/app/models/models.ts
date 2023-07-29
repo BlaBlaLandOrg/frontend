@@ -11,7 +11,7 @@ export interface Setting {
     prompt?: string;
 }
 
-export interface message {
+export interface Message {
     role: 'system' | 'assistant' | 'user';
     content: string;
 }

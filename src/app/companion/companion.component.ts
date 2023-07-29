@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../data-access/backend.service';
+import { ConversationService } from '../data-access/conversation.service';
 
 @Component({
   selector: 'app-companion',
@@ -7,13 +8,17 @@ import { BackendService } from '../data-access/backend.service';
   styleUrls: ['./companion.component.scss'],
 })
 export class CompanionComponent {
-  private audio: Blob | null = null;
-  text = 'enter conversation here';
+  audio: Blob | null = null;
+  companionText = '...';
+  userText = '...';
 
-  constructor(private backendService: BackendService) {}
+  constructor(private backendService: BackendService, private conversationService: ConversationService) { }
+
+  ngOnInit() {
+    this.conversationService.initConversation();
+  }
 
   save(event: Blob) {
-    console.log(event);
     this.audio = event;
     this.send();
   }
@@ -23,12 +28,12 @@ export class CompanionComponent {
       const formData = new FormData();
       formData.append('audio_file', this.audio, 'randomIrgendwas');
 
-      this.backendService.sendAudio(formData).subscribe((x) => console.log(x));
+      this.backendService.sendAudio(formData).subscribe(res => {
+        this.userText = res.text;
+        this.conversationService.chat(res.text).subscribe(res => {
+          this.companionText = res
+        });
+      });
     }
-  }
-
-  chat() {
-    console.log(this.text);
-    this.backendService.conversation(this.text)
   }
 }

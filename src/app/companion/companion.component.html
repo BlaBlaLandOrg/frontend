@@ -1,19 +1,14 @@
 <div class="container">
   <div class="recorder">
     <app-playback></app-playback>
-    <app-speech-bubble [position]="'speech left'"></app-speech-bubble>
+    <app-speech-bubble [position]="'speech left'" [text]="companionText"></app-speech-bubble>
   </div>
 
   <div class="recorder">
-    <app-speech-bubble [position]="'speech right'"></app-speech-bubble>
+    <app-speech-bubble [position]="'speech right'" [text]="userText"></app-speech-bubble>
     <ngx-mic-recorder
       [showVisualization]="false"
       (getAsBlob)="save($event)"
     ></ngx-mic-recorder>
-  </div>
-
-  <div>
-    <input type="text" [(ngModel)]="text">
-    <button mat-button (click)="chat()">send</button>
   </div>
 </div>
