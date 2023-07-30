@@ -15,10 +15,12 @@ export class PlaybackComponent {
 
     if (currentTime <= this.m[0].end) {
       this.mouthSource = 'assets/' + this.m[0].value + '.png';
+      console.log(currentTime, this.m[0]);
     } else {
-      while (currentTime > this.m[0].end && this.m.length > 1) {
+      while (currentTime > this.m[1].end && this.m.length > 1) {
         this.m = this.m.length > 0 ? this.m.slice(1) : this.m;
-        this.mouthSource = 'assets/' + this.m[1].value + '.png';
+        console.log(currentTime, this.m[0]);
+        this.mouthSource = 'assets/' + this.m[0].value + '.png';
       }
     }
   }
