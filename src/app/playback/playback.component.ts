@@ -1,26 +1,34 @@
 import { Component, Input } from '@angular/core';
+import { BackendService } from '../data-access/backend.service';
 @Component({
   selector: 'app-playback',
   templateUrl: './playback.component.html',
   styleUrls: ['./playback.component.scss'],
 })
 export class PlaybackComponent {
-  constructor() {}
+  constructor(private backendService: BackendService) { }
 
   public mouthSource = 'assets/A.png';
-
   public blobURL;
-  @Input()
-  set audioPath(audio) {
-    if (audio) {
-      this.playAudio(audio);
+  public closeEyes = false;
+  public sync: { start: Number; end: number; value: string }[] = [];
+
+  @Input() set text(text: string) {
+    if (text) {
+      this.backendService.textToSpeech(text, 'Clyde', true)
+        .subscribe((res) => {
+          if (res.lipsync) {
+            this.sync = res.lipsync;
+            this.m = [...this.sync];
+          }
+          if (res.bytes) {
+            this.playAudio(res.bytes);
+          }
+        });
     }
   }
-  @Input() public sync: { start: Number; end: number; value: string }[] = [];
-  public closeEyes = false;
 
   onTimeUpdate(event: Event) {
-    console.log('here');
     const audioElement = event.target as HTMLAudioElement;
     const currentTime = audioElement.currentTime;
 
@@ -44,12 +52,11 @@ export class PlaybackComponent {
     }
   }
 
-  playAudio(audio: string, lips?: any) {
+  playAudio(audio: string) {
     this.m = [...this.sync];
-    console.log('SYNC', this.sync);
     const ele = new Audio('data:audio/mpeg;base64,' + audio);
+    ele.addEventListener('timeupdate', (event) => this.onTimeUpdate(event));
     document.getElementById('audioPlaceholder').appendChild(ele);
-    ele.addEventListener('ontimeupdate', (event) => this.onTimeUpdate(event));
     ele.play();
   }
 

@@ -6,10 +6,10 @@
   </div>
 
   <div class="recorder">
-    <app-playback [audioPath]="audio" [sync]="lipsync"></app-playback>
+    <app-playback [text]="companionText"></app-playback>
     <app-speech-bubble
       [position]="'speech left'"
-      [text]="companionText"
+      [text]="companionText || '...'"
     ></app-speech-bubble>
   </div>
 

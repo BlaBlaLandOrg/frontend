@@ -10,7 +10,7 @@ import { ConversationService } from '../data-access/conversation.service';
 export class CompanionComponent {
   audio?: Blob;
   recorderInitialized = false;
-  companionText = '...';
+  companionText;
   userText = '...';
   companion: Character = {
     id: 'test',
@@ -29,7 +29,7 @@ export class CompanionComponent {
   constructor(
     private backendService: BackendService,
     private conversationService: ConversationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.conversationService.initConversation();
@@ -47,16 +47,6 @@ export class CompanionComponent {
         this.userText = res.text;
         this.conversationService.chat(res.text).subscribe((res) => {
           this.companionText = res;
-          this.backendService
-            .textToSpeech(res, 'Clyde', true)
-            .subscribe((res) => {
-              // this.playAudio(res.bytes);
-              this.audio = res.bytes;
-              if (res.lipsync) {
-                console.log(res.lipsync);
-                this.lipsync = res.lipsync;
-              }
-            });
         });
       });
     }
