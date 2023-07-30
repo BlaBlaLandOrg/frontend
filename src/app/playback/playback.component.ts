@@ -7,7 +7,7 @@ import { BackendService, Character } from '../data-access/backend.service';
 })
 export class PlaybackComponent {
   @Output() isLoading = new EventEmitter<boolean>();
-  constructor(private backendService: BackendService) { }
+  constructor(private backendService: BackendService) {}
 
   public mouthSource = 'assets/A.png';
   public blobURL;
@@ -19,7 +19,12 @@ export class PlaybackComponent {
     if (text) {
       this.isLoading.emit(true);
 
-      this.backendService.textToSpeech(text, this.companion.voice_schema.name, this.companion.id === '1')
+      this.backendService
+        .textToSpeech(
+          text,
+          this.companion.voice_schema.name,
+          this.companion.id === '1'
+        )
         .subscribe((res) => {
           if (res.lipsync) {
             this.sync = res.lipsync;
@@ -59,7 +64,10 @@ export class PlaybackComponent {
   playAudio(audio: string) {
     this.m = [...this.sync];
     const ele = new Audio('data:audio/mpeg;base64,' + audio);
-    ele.addEventListener('timeupdate', (event) => this.onTimeUpdate(event));
+    if (this.m.length > 0) {
+      ele.addEventListener('timeupdate', (event) => this.onTimeUpdate(event));
+    }
+
     document.getElementById('audioPlaceholder').appendChild(ele);
     ele.play();
     this.isLoading.emit(false);
