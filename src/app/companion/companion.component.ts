@@ -29,13 +29,12 @@ export class CompanionComponent {
   constructor(
     private backendService: BackendService,
     private conversationService: ConversationService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.conversationService.initConversation();
     if (this.conversationService.currentCompanion)
       this.companion = this.conversationService.currentCompanion;
-    console.log(this.companion);
   }
 
   send(event: Blob) {
