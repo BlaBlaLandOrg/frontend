@@ -78,6 +78,11 @@ export class BackendService {
   }
 
   createCharacter(name: string, description: string, file: File): Observable<any> {
-    return this.http.post('api/create-character/', [file], { params: { name: name, description: description } });
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    return this.http.post('api/create-character/', formData, { params: { name: name, description: description } });
   }
 }
