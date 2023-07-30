@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SpeechBubbleComponent {
   @Input() position = 'speech left';
-  @Input() text = '...';
+  @Input() text: string;
 
 }

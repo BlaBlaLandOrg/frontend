@@ -1,4 +1,4 @@
-<mat-progress-bar id="progressBar" mode="indeterminate" [class.hidden]="!isLoading"></mat-progress-bar>
+<!-- <mat-progress-bar id="progressBar" mode="indeterminate" [class.hidden]="!isLoading"></mat-progress-bar> -->
 <div class="container">
   <h1>Chat with {{ companion.name }}</h1>
   <div class="container__description">
@@ -10,7 +10,7 @@
     <app-playback [text]="companionText" (isLoading)="isLoading = $event" [companion]="companion"></app-playback>
     <app-speech-bubble
       [position]="'speech left'"
-      [text]="companionText || '...'"
+      [text]="isLoading ? null : companionText || '...'"
     ></app-speech-bubble>
   </div>
 
