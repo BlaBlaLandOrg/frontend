@@ -35,6 +35,7 @@ export class CompanionComponent {
     this.conversationService.initConversation();
     if (this.conversationService.currentCompanion)
       this.companion = this.conversationService.currentCompanion;
+    console.log(this.companion);
   }
 
   send(event: Blob) {
@@ -47,7 +48,7 @@ export class CompanionComponent {
         this.conversationService.chat(res.text).subscribe((res) => {
           this.companionText = res;
           this.backendService
-            .textToSpeech(res, 'Clyde', false)
+            .textToSpeech(res, 'Clyde', false) //this.companion.id === 1)
             .subscribe((res) => {
               this.playAudio(res.path);
               this.audio = res.path;

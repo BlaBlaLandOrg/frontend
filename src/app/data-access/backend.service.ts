@@ -53,6 +53,12 @@ export class BackendService {
       .pipe(map((res) => res));
   }
 
+  getAudio2(path: String) {
+    return this.http
+      .get(`api/get-recording2?id=${path}`, { responseType: 'blob' })
+      .pipe(map((res) => res));
+  }
+
   textToSpeech(
     text: string,
     voice: string,

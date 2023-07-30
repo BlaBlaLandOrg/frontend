@@ -23,10 +23,12 @@ export class PlaybackComponent {
   @Input()
   set audioPath(audio) {
     if (audio) {
-      this.backendService.getAudio(audio).subscribe((x) => {
+      this.backendService.getAudio2(audio).subscribe((x) => {
+        console.log(x);
         this.blobURL = this.sanitizer.bypassSecurityTrustUrl(
           URL.createObjectURL(x)
         );
+        console.log(this.blobURL.url);
       });
     }
   }
