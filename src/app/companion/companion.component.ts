@@ -50,8 +50,8 @@ export class CompanionComponent {
           this.backendService
             .textToSpeech(res, 'Clyde', false) //this.companion.id === 1)
             .subscribe((res) => {
-              this.playAudio(res.path);
-              this.audio = res.path;
+              // this.playAudio(res.bytes);
+              this.audio = res.bytes;
               if (res.lipsync) {
                 this.lipsync = res.lipsync;
               }
@@ -59,9 +59,5 @@ export class CompanionComponent {
         });
       });
     }
-  }
-
-  playAudio(audio: File, lips?: any) {
-    console.log(audio);
   }
 }
