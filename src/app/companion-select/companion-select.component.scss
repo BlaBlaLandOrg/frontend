@@ -33,8 +33,13 @@ $my-palette: mat.define-palette(mat.$purple-palette);
     );
   }
 
+  .mat-mdc-card {
+    background-color: #95bfa4;
+  }
+
   .active.mat-mdc-card {
-    background-color: mat.get-color-from-palette($my-palette, "darker");
+    background-color: #f29e38 !important;
+    //background-color: mat.get-color-from-palette($my-palette, "darker");
   }
 }
 
@@ -55,7 +60,7 @@ $my-palette: mat.define-palette(mat.$purple-palette);
     font-size: 24px;
     text-align: center;
   }
-  
+
   &__description {
     margin: auto;
     text-align: center;
@@ -79,4 +84,8 @@ $my-palette: mat.define-palette(mat.$purple-palette);
 
 .fadeIn {
   transition: opacity 0.5s;
+
+  button {
+    background-color: #f29e38 !important;
+  }
 }

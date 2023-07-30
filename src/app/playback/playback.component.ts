@@ -1,17 +1,13 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BackendService, Character } from '../data-access/backend.service';
 @Component({
   selector: 'app-playback',
   templateUrl: './playback.component.html',
   styleUrls: ['./playback.component.scss'],
 })
-export class PlaybackComponent implements OnInit {
+export class PlaybackComponent {
   @Output() isLoading = new EventEmitter<boolean>();
   constructor(private backendService: BackendService) {}
-
-  ngOnInit(): void {
-    console.log(this.companion);
-  }
 
   public mouthSource = 'assets/A.png';
   public blobURL;
