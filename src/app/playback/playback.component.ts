@@ -8,17 +8,23 @@ import { Component } from '@angular/core';
 export class PlaybackComponent {
   public mouthSource = 'assets/A.png';
   public audioElement = null;
+  public closeEyes = false;
 
   onTimeUpdate(event: Event) {
     const audioElement = event.target as HTMLAudioElement;
     const currentTime = audioElement.currentTime;
 
+    Math.ceil(currentTime) % 6 == 0
+      ? (this.closeEyes = true)
+      : (this.closeEyes = false);
     if (currentTime <= this.m[0].end) {
       this.mouthSource = 'assets/' + this.m[0].value + '.png';
+      console.log(currentTime, this.m[0]);
     } else {
-      while (currentTime > this.m[0].end && this.m.length > 1) {
+      while (currentTime > this.m[1].end && this.m.length > 1) {
         this.m = this.m.length > 0 ? this.m.slice(1) : this.m;
-        this.mouthSource = 'assets/' + this.m[1].value + '.png';
+        console.log(currentTime, this.m[0]);
+        this.mouthSource = 'assets/' + this.m[0].value + '.png';
       }
     }
   }

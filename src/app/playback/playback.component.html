@@ -1,6 +1,7 @@
 <div class="container">
   <div class="image-container">
-    <img class="character" src="assets/Guy.png" />
+    <img class="eyes" src="assets/eyes_closed.png" *ngIf="closeEyes" />
+    <img class="character" src="assets/monster.png" />
     <img class="mouth" [src]="mouthSource" />
   </div>
 
