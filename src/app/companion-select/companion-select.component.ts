@@ -1,9 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
-import { Companion, Setting } from '../models/models';
+import { Companion, Setting, settings } from '../models/models';
 import { BackendService, Character } from '../data-access/backend.service';
 import { Router } from '@angular/router';
 import { ConversationService } from '../data-access/conversation.service';
+
 
 @Component({
   selector: 'app-companion-select',
@@ -20,21 +21,7 @@ export class CompanionSelectComponent {
   showSettings = false;
   showSubmit = false;
   companions: Character[] = [];
-
-  // companions: Companion[] = [
-  //   { id: 'freeman', name: 'Morgan Freeman', avatar: 'freeman.png' },
-  //   { id: 'beach', name: 'Hot Beach Guy', avatar: 'beach.png' },
-  //   { id: 'librarian', name: 'Whispering Librarian', avatar: 'librarian.png' },
-  //   { id: 'grandma', name: 'My Grandma', avatar: 'grandma.png' },
-  //   { id: 'football', name: 'Football Coach', avatar: 'football.png' },
-  // ];
-
-  settings: Setting[] = [
-    { id: 'teacher', name: 'be my teacher' },
-    { id: 'partner', name: 'be my partner' },
-    { id: 'story', name: 'tell me a story' },
-    { id: 'support', name: 'give me moral support' },
-  ];
+  settings = settings;
 
   constructor(
     private backend: BackendService,
@@ -91,8 +78,9 @@ export class CompanionSelectComponent {
     this.slider?.emit('slideChanged');
   }
 
-  navigateToCompanion() {
+  navigateToCompanion(setting: string) {
     this.conversationService.currentCompanion = this.companions[this.slideIdx];
+    this.conversationService.currentSetting = setting;
     this.router.navigateByUrl('/companion');
   }
 

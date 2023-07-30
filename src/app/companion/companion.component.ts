@@ -35,7 +35,7 @@ export class CompanionComponent {
     if (this.conversationService.currentCompanion) {
       this.companion = this.conversationService.currentCompanion;
     }
-    this.conversationService.initConversation(this.companion.id);
+    this.conversationService.initConversation();
   }
 
   send(event: Blob) {
