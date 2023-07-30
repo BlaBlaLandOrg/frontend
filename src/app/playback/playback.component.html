@@ -1,5 +1,12 @@
 <div class="container">
-  <div class="image-container">
+  <div class="avatar-container">
+    <img
+      class="character"
+      *ngIf="companion.id != '1'"
+      [src]="companion.avatar_url"
+    />
+  </div>
+  <div *ngIf="companion.id == '1'" class="image-container">
     <img class="eyes" src="assets/eyes_closed.png" *ngIf="closeEyes" />
     <img class="character" src="assets/monster.png" />
     <img class="mouth" [src]="mouthSource" />

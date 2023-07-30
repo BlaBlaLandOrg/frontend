@@ -36,15 +36,20 @@ export class CompanionSelectComponent {
     { id: 'support', name: 'give me moral support' },
   ];
 
-  constructor(private backend: BackendService, private router: Router, private conversationService: ConversationService) { }
+  constructor(
+    private backend: BackendService,
+    private router: Router,
+    private conversationService: ConversationService
+  ) {}
 
   ngAfterViewInit() {
-    this.backend.getAllCharacters().subscribe(characters => { this.companions = characters; this.initSlider() });
+    this.backend.getAllCharacters().subscribe((characters) => {
+      this.companions = characters;
+      this.initSlider();
+    });
   }
 
   initSlider() {
-    console.log(this.companions);
-
     if (this.sliderRef) {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
         loop: true,
@@ -61,7 +66,7 @@ export class CompanionSelectComponent {
       setTimeout(() => {
         //requires re-render after init
         this.slider?.update();
-      }, 0)
+      }, 0);
     }
   }
 
