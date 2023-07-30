@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BackendService, Character } from '../data-access/backend.service';
 import { ConversationService } from '../data-access/conversation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-companion',
@@ -28,14 +29,17 @@ export class CompanionComponent {
 
   constructor(
     private backendService: BackendService,
-    private conversationService: ConversationService
+    private conversationService: ConversationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     if (this.conversationService.currentCompanion) {
       this.companion = this.conversationService.currentCompanion;
+      this.conversationService.initConversation();
+    } else {
+      this.router.navigateByUrl('/')
     }
-    this.conversationService.initConversation();
   }
 
   send(event: Blob) {
@@ -53,7 +57,6 @@ export class CompanionComponent {
   }
 
   rate(rating: string) {
-    console.log(rating);
     this.backendService.rating(this.companion.id, rating).subscribe(res => this.companion.rating = res.new_rating);
   }
 }

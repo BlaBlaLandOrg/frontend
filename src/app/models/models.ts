@@ -22,5 +22,6 @@ export const settings: Setting[] = [
     { id: 'story', name: 'tell me a story' },
     { id: 'support', name: 'give me moral support' },
     { id: 'friend', name: 'be my childhood friend' },
-    { id: 'angry', name: 'be upset' },
-  ];
+    { id: 'angry', name: 'be really upset' },
+    { id: 'memelord', name: 'speak in dank memes' },
+];
