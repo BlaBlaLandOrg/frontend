@@ -1,27 +1,28 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
 
-    &__description {
-        display: flex;
-        gap: 1rem;
-    }
+  &__description {
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 ngx-mic-recorder {
-    width: 64px;
-    overflow: hidden;
+  width: 64px;
+  overflow: hidden;
 }
 
 ::ng-deep.ngx-mic-recorder__start-stop {
-    background-color: #7b1fa2 !important;
+  background-color: #f29e38 !important;
+  border-color: #f29e38 !important;
 }
 
 .recorder {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
