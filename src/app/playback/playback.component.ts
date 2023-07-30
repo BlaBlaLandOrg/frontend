@@ -12,10 +12,7 @@ import {
   styleUrls: ['./playback.component.scss'],
 })
 export class PlaybackComponent {
-  constructor(
-    private backendService: BackendService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor() { }
 
   public mouthSource = 'assets/A.png';
 
@@ -23,11 +20,8 @@ export class PlaybackComponent {
   @Input()
   set audioPath(audio) {
     if (audio) {
-      this.backendService.getAudio(audio).subscribe((x) => {
-        this.blobURL = this.sanitizer.bypassSecurityTrustUrl(
-          URL.createObjectURL(x)
-        );
-      });
+      console.log(audio);
+      this.playAudio(audio);
     }
   }
   @Input() public sync: { start: Number; end: number; value: string }[] = [];
@@ -55,6 +49,12 @@ export class PlaybackComponent {
     if (audioElement.currentTime == 0) {
       this.m = [...this.sync];
     }
+  }
+
+  playAudio(audio: string, lips?: any) {
+    const ele = new Audio("data:audio/mpeg;base64," + audio);
+    document.getElementById('audioPlaceholder').appendChild(ele);
+    ele.play();
   }
 
   private m = [...this.sync];
