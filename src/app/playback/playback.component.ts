@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BackendService } from '../data-access/backend.service';
 @Component({
   selector: 'app-playback',
@@ -6,6 +6,7 @@ import { BackendService } from '../data-access/backend.service';
   styleUrls: ['./playback.component.scss'],
 })
 export class PlaybackComponent {
+  @Output() isLoading = new EventEmitter<boolean>();
   constructor(private backendService: BackendService) { }
 
   public mouthSource = 'assets/A.png';
@@ -15,6 +16,8 @@ export class PlaybackComponent {
 
   @Input() set text(text: string) {
     if (text) {
+      this.isLoading.emit(true);
+      
       this.backendService.textToSpeech(text, 'Clyde', true)
         .subscribe((res) => {
           if (res.lipsync) {
@@ -58,6 +61,7 @@ export class PlaybackComponent {
     ele.addEventListener('timeupdate', (event) => this.onTimeUpdate(event));
     document.getElementById('audioPlaceholder').appendChild(ele);
     ele.play();
+    this.isLoading.emit(false);
   }
 
   private m = [...this.sync];

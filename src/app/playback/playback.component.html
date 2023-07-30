@@ -4,16 +4,5 @@
     <img class="character" src="assets/monster.png" />
     <img class="mouth" [src]="mouthSource" />
   </div>
-
   <div id="audioPlaceholder"></div>
-
-  <audio
-    #audioPlayer
-    id="audioPlayer"
-    controls
-    (timeupdate)="onTimeUpdate($event)"
-    (play)="onPlay($event)"
-  >
-    <source [src]="blobURL" />
-  </audio>
 </div>

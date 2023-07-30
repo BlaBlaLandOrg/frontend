@@ -8,7 +8,7 @@ import { ConversationService } from '../data-access/conversation.service';
   styleUrls: ['./companion.component.scss'],
 })
 export class CompanionComponent {
-  audio?: Blob;
+  isLoading = false;
   recorderInitialized = false;
   companionText;
   userText = '...';

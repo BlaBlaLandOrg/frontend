@@ -4,6 +4,7 @@
   align-items: center;
   gap: 2rem;
   padding: 2rem;
+  overflow: hidden;
 
   &__description {
     display: flex;
@@ -25,4 +26,8 @@ ngx-mic-recorder {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.hidden {
+    visibility: hidden;
 }
