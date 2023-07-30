@@ -47,7 +47,7 @@ export class CompanionComponent {
         this.conversationService.chat(res.text).subscribe((res) => {
           this.companionText = res;
           this.backendService
-            .textToSpeech(res, 'Clyde', true)
+            .textToSpeech(res, 'Clyde', false)
             .subscribe((res) => {
               this.playAudio(res.path);
               this.audio = res.path;

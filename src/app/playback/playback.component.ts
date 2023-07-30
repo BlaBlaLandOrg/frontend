@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { BackendService } from '../data-access/backend.service';
+import {
+  DomSanitizer,
+  SafeResourceUrl,
+  SafeUrl,
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-playback',
@@ -7,17 +12,21 @@ import { BackendService } from '../data-access/backend.service';
   styleUrls: ['./playback.component.scss'],
 })
 export class PlaybackComponent {
-  constructor(private backendService: BackendService) {}
+  constructor(
+    private backendService: BackendService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   public mouthSource = 'assets/A.png';
 
-  public _audioPath;
+  public blobURL;
   @Input()
   set audioPath(audio) {
     if (audio) {
       this.backendService.getAudio(audio).subscribe((x) => {
-        console.log(x);
-        this._audioPath = x;
+        this.blobURL = this.sanitizer.bypassSecurityTrustUrl(
+          URL.createObjectURL(x)
+        );
       });
     }
   }

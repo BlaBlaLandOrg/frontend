@@ -49,7 +49,7 @@ export class BackendService {
 
   getAudio(path: String) {
     return this.http
-      .get(`api/get-recording?id=${path}`)
+      .get(`api/get-recording?id=${path}`, { responseType: 'blob' })
       .pipe(map((res) => res));
   }
 

@@ -11,6 +11,6 @@
     (timeupdate)="onTimeUpdate($event)"
     (play)="onPlay($event)"
   >
-    <source src="_audioPath" type="audio/mpeg" />
+    <source [src]="blobURL" type="audio/mp3" />
   </audio>
 </div>
