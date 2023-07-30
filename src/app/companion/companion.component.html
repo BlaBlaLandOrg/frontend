@@ -7,7 +7,7 @@
   </div>
 
   <div class="recorder">
-    <app-playback [text]="companionText" (isLoading)="isLoading = $event"></app-playback>
+    <app-playback [text]="companionText" (isLoading)="isLoading = $event" [companion]="companion"></app-playback>
     <app-speech-bubble
       [position]="'speech left'"
       [text]="companionText || '...'"

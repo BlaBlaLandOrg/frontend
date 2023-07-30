@@ -20,7 +20,7 @@ export class CompanionComponent {
     labels: [],
     rating: 3,
     voice_schema: {
-      name: 'test',
+      name: 'Clyde',
     },
   };
 

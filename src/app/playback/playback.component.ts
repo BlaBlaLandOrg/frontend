@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BackendService } from '../data-access/backend.service';
+import { BackendService, Character } from '../data-access/backend.service';
 @Component({
   selector: 'app-playback',
   templateUrl: './playback.component.html',
@@ -14,11 +14,12 @@ export class PlaybackComponent {
   public closeEyes = false;
   public sync: { start: Number; end: number; value: string }[] = [];
 
+  @Input() companion: Character;
   @Input() set text(text: string) {
     if (text) {
       this.isLoading.emit(true);
-      
-      this.backendService.textToSpeech(text, 'Clyde', true)
+
+      this.backendService.textToSpeech(text, this.companion.voice_schema.name, this.companion.id === '1')
         .subscribe((res) => {
           if (res.lipsync) {
             this.sync = res.lipsync;
