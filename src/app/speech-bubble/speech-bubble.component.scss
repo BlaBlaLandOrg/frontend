@@ -10,7 +10,7 @@
 
   /* (A2) COLORS */
   color: #fff;
-  background: #333835;
+  background: #95bfa4;
 
   /* (A3) DIMENSIONS + POSITION */
   position: relative;
@@ -34,7 +34,7 @@
 /* (B2) BOTTOM "CALLOUT TAIL" */
 .bottom.speech::after {
   /* (B2-1) DOWN TRIANGLE */
-  border-top-color: #333835;
+  border-top-color: #95bfa4;
   border-bottom: 0;
 
   /* (B2-2) POSITION AT BOTTOM */
@@ -47,7 +47,7 @@
 /* (C1) TOP */
 .top.speech::after {
   /* (C1-1) UP TRIANGLE */
-  border-bottom-color: #333835;
+  border-bottom-color: #95bfa4;
   border-top: 0;
 
   /* (C1-2) POSITION AT TOP */
@@ -59,7 +59,7 @@
 /* (C2) LEFT */
 .left.speech::after {
   /* (C2-1) LEFT TRIANGLE */
-  border-right-color: #333835;
+  border-right-color: #95bfa4;
   border-left: 0;
 
   /* (C2-2) POSITION AT LEFT */
@@ -71,7 +71,7 @@
 /* (C3) RIGHT */
 .right.speech::after {
   /* (C3-1) RIGHT TRIANGLE */
-  border-left-color: #333835;
+  border-left-color: #95bfa4;
   border-right: 0;
 
   /* (C3-2) POSITION AT RIGHT */
@@ -116,10 +116,14 @@ body {
   display: inline-block;
   padding: 5px;
   text-decoration: none;
-  background: #333835;
+  background: #95bfa4;
   color: #fff;
 }
 
 .widget-wrap {
   width: 300px;
+}
+
+::ng-deep .mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #fff8ee !important
 }
