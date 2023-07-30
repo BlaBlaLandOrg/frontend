@@ -22,7 +22,8 @@ interface Text {
 interface VoiceSchema {
   text: string,
   voice_name: string,
-  modelExpand: string
+  model: string
+  lip_sync: boolean
 }
 
 @Injectable({
@@ -47,7 +48,8 @@ export class BackendService {
     const req: VoiceSchema = {
       text: text,
       voice_name: voice,
-      modelExpand: "eleven_multilingual_v1"
+      model: "eleven_multilingual_v1",
+      lip_sync: false
     }
     return this.http.post('api/text-to-speech', req).pipe(map((res => res)));
   }

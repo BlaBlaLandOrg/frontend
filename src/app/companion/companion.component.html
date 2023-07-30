@@ -13,6 +13,11 @@
     ></app-speech-bubble>
   </div>
 
+  
+  <audio *ngIf="audio" controls>
+    <source [src]="audio" type="audio/mpeg">
+  </audio>
+  
   <div class="recorder">
     <app-speech-bubble
       [position]="'speech right'"

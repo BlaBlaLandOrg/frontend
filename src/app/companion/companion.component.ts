@@ -1,7 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { BackendService, Character } from '../data-access/backend.service';
 import { ConversationService } from '../data-access/conversation.service';
-import { NgxMicRecorderComponent } from 'ngx-mic-recorder';
 
 @Component({
   selector: 'app-companion',
@@ -41,9 +40,13 @@ export class CompanionComponent {
         this.userText = res.text;
         this.conversationService.chat(res.text).subscribe(res => {
           this.companionText = res
-          this.backendService.textToSpeech(res, 'Clyde').subscribe(x => console.log(x));
+          this.backendService.textToSpeech(res, 'Clyde').subscribe(res => this.playAudio(res.bytes));
         });
       });
     }
+  }
+
+  playAudio(audio: File, lips?: any) {
+    console.log(audio);
   }
 }
