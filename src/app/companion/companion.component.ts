@@ -41,6 +41,7 @@ export class CompanionComponent {
         this.userText = res.text;
         this.conversationService.chat(res.text).subscribe(res => {
           this.companionText = res
+          this.backendService.textToSpeech(res, 'bob').subscribe(x => console.log(x));
         });
       });
     }
