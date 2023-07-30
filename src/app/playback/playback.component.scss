@@ -14,6 +14,8 @@
 .character {
   height: 300px;
   width: auto;
+  border-radius: 22px;
+  filter: drop-shadow(0 0 0.5rem black);
 }
 
 .mouth {
