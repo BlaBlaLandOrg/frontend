@@ -1,8 +1,16 @@
 <div class="container">
+  <h1>Create your own Character</h1>
+
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>What is your characters name</mat-label>
-      <input type="text" matInput placeholder="ex. Simba" />
+      <input
+        type="text"
+        matInput
+        placeholder="ex. Simba"
+        [(ngModel)]="charName"
+        name="name"
+      />
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -11,25 +19,46 @@
         type="text"
         matInput
         placeholder="Ex. an elderly man with reading glasses and fluffy white hair"
-      />
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>What is your character like?</mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="ex. a sweet grandpa that likes to tell stories."
+        [(ngModel)]="charDescription"
+        name="description"
       />
     </mat-form-field>
   </form>
-
+  <!-- 
   <title>record yourself</title>
   <ngx-mic-recorder
     [showVisualization]="false"
     (getAsBlob)="send($event)"
     (afterStartRecording)="recorderInitialized = true"
-  ></ngx-mic-recorder>
+  ></ngx-mic-recorder> -->
+  <div>
+    <input
+      type="file"
+      class="file-input"
+      (change)="onFileSelected($event)"
+      #fileUpload
+    />
 
-  <button mat-button type="submit"></button>
+    <div class="file-upload">
+      <button
+        mat-mini-fab
+        color="primary"
+        class="upload-btn"
+        accept="audio/mp3"
+        (click)="fileUpload.click()"
+      >
+        <mat-icon>attach_file</mat-icon>
+      </button>
+      {{ fileUpload.value.split("\\").pop() || "No file uploaded yet." }}
+    </div>
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="submit()"
+    [disabled]="!(charName && charDescription && file)"
+  >
+    create
+  </button>
 </div>

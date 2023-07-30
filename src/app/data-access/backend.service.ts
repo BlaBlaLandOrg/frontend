@@ -76,4 +76,8 @@ export class BackendService {
   rating(characterId: string, rating: string): Observable<any> {
     return this.http.post('api/character-update-rating/' + characterId, null, { params: { rating: rating } });
   }
+
+  createCharacter(name: string, description: string, file: File): Observable<any> {
+    return this.http.post('api/create-character/', [file], { params: { name: name, description: description } });
+  }
 }
