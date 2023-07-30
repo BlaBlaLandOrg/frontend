@@ -13,7 +13,7 @@ export class CompanionComponent {
   companionText;
   userText = '...';
   companion: Character = {
-    id: 'test',
+    id: '1',
     name: 'characterName',
     avatar_url: 'avatar',
     description: 'description',
@@ -49,5 +49,10 @@ export class CompanionComponent {
         });
       });
     }
+  }
+
+  rate(rating: string) {
+    console.log(rating);
+    this.backendService.rating(this.companion.id, rating).subscribe(res => this.companion.rating = res.new_rating);
   }
 }

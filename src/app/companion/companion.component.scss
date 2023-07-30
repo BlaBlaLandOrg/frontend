@@ -12,6 +12,12 @@
   }
 }
 
+.vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 ngx-mic-recorder {
   width: 64px;
   overflow: hidden;
@@ -22,6 +28,19 @@ ngx-mic-recorder {
   border-color: #f29e38 !important;
 }
 
+::ng-deep .mat-mdc-slider.mat-primary {
+  --mdc-slider-handle-color: #f29e38;
+  --mdc-slider-focus-handle-color: #f29e38;
+  --mdc-slider-hover-handle-color: #f29e38;
+  --mdc-slider-active-track-color: #f29e38;
+  --mdc-slider-inactive-track-color: #f29e38;
+}
+
+.mat-mdc-card {
+  background-color: #95bfa4;
+  color: white !important;
+}
+
 .recorder {
   display: flex;
   align-items: center;
@@ -29,5 +48,5 @@ ngx-mic-recorder {
 }
 
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }

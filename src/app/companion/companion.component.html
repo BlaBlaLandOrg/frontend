@@ -6,10 +6,12 @@
     <h3>{{ companion.rating }}/5 ⭐</h3>
   </div>
 
-  <mat-divider></mat-divider>
-  
   <div class="recorder">
-    <app-playback [text]="companionText" (isLoading)="isLoading = $event" [companion]="companion"></app-playback>
+    <app-playback
+      [text]="companionText"
+      (isLoading)="isLoading = $event"
+      [companion]="companion"
+    ></app-playback>
     <app-speech-bubble
       [position]="'speech left'"
       [text]="isLoading ? null : companionText || '...'"
@@ -27,4 +29,16 @@
       (afterStartRecording)="recorderInitialized = true"
     ></ngx-mic-recorder>
   </div>
+
+  <mat-card>
+    <mat-card-content>
+      <div class="vote">
+        <span>Rate this Character</span>
+        <mat-slider min="1" max="5" step="1" showTickMarks discrete>
+          <input #rating matSliderThumb/>
+        </mat-slider>
+        <button mat-button (click)="rate(rating.value)">Submit Rating</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

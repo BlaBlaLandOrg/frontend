@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Message } from '../models/models';
@@ -29,7 +29,7 @@ interface VoiceSchema {
   providedIn: 'root',
 })
 export class BackendService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAllCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>('api/list-all-character');
@@ -71,5 +71,9 @@ export class BackendService {
       lip_sync: lipSync,
     };
     return this.http.post('api/text-to-speech', req).pipe(map((res) => res));
+  }
+
+  rating(characterId: string, rating: string): Observable<any> {
+    return this.http.post('api/character-update-rating/' + characterId, null, { params: { rating: rating } });
   }
 }
