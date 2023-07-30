@@ -23,4 +23,13 @@
       />
     </mat-form-field>
   </form>
+
+  <title>record yourself</title>
+  <ngx-mic-recorder
+    [showVisualization]="false"
+    (getAsBlob)="send($event)"
+    (afterStartRecording)="recorderInitialized = true"
+  ></ngx-mic-recorder>
+
+  <button mat-button type="submit"></button>
 </div>

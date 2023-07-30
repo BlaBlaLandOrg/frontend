@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BackendService } from '../data-access/backend.service';
 
 @Component({
   selector: 'app-playback',
@@ -6,11 +7,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./playback.component.scss'],
 })
 export class PlaybackComponent {
+  constructor(private backendService: BackendService) {}
+
   public mouthSource = 'assets/A.png';
+
   public _audioPath;
   @Input()
   set audioPath(audio) {
-    console.log(audio);
+    if (audio) {
+      this.backendService.getAudio(audio).subscribe((x) => {
+        console.log(x);
+        this._audioPath = x;
+      });
+    }
   }
   @Input() public sync: { start: Number; end: number; value: string }[] = [];
   public closeEyes = false;

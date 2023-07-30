@@ -47,6 +47,12 @@ export class BackendService {
       .pipe(map((res) => res as Message));
   }
 
+  getAudio(path: String) {
+    return this.http
+      .get(`api/get-recording?id=${path}`)
+      .pipe(map((res) => res));
+  }
+
   textToSpeech(
     text: string,
     voice: string,
