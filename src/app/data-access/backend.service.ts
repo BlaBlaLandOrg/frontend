@@ -81,8 +81,8 @@ export class BackendService {
 
     const formData = new FormData();
 
-    formData.append("file", file);
+    formData.append("files", file);
 
-    return this.http.post('api/create-character/', formData, { params: { name: name, description: description } });
+    return this.http.post('api/create-character', formData, { params: { name: name, description: description } });
   }
 }
