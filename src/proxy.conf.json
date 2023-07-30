@@ -1,7 +1,7 @@
 {
-    "/api": {
-      "target": "http://blablaland.tech:8000/",
-      "secure": false,
-      "changeOrigin": true
-    }
+  "/api": {
+    "target": "https://blablaland.tech/",
+    "secure": false,
+    "changeOrigin": true
   }
+}

@@ -6,18 +6,17 @@
   </div>
 
   <div class="recorder">
-    <app-playback></app-playback>
+    <app-playback [audioPath]="audio" [sync]="lipsync"></app-playback>
     <app-speech-bubble
       [position]="'speech left'"
       [text]="companionText"
     ></app-speech-bubble>
   </div>
 
-  
   <audio *ngIf="audio" controls>
-    <source [src]="audio" type="audio/mpeg">
+    <source [src]="audio" type="audio/mpeg" />
   </audio>
-  
+
   <div class="recorder">
     <app-speech-bubble
       [position]="'speech right'"

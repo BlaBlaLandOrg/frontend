@@ -20,15 +20,21 @@ export class CompanionComponent {
     labels: [],
     rating: 3,
     voice_schema: {
-      name: 'test'
-    }
+      name: 'test',
+    },
   };
 
-  constructor(private backendService: BackendService, private conversationService: ConversationService) { }
+  lipsync = [];
+
+  constructor(
+    private backendService: BackendService,
+    private conversationService: ConversationService
+  ) {}
 
   ngOnInit() {
     this.conversationService.initConversation();
-    if (this.conversationService.currentCompanion) this.companion = this.conversationService.currentCompanion;
+    if (this.conversationService.currentCompanion)
+      this.companion = this.conversationService.currentCompanion;
   }
 
   send(event: Blob) {
@@ -36,11 +42,19 @@ export class CompanionComponent {
       const formData = new FormData();
       formData.append('audio_file', event, 'randomIrgendwas');
 
-      this.backendService.sendAudio(formData).subscribe(res => {
+      this.backendService.sendAudio(formData).subscribe((res) => {
         this.userText = res.text;
-        this.conversationService.chat(res.text).subscribe(res => {
-          this.companionText = res
-          this.backendService.textToSpeech(res, 'Clyde').subscribe(res => this.playAudio(res.bytes));
+        this.conversationService.chat(res.text).subscribe((res) => {
+          this.companionText = res;
+          this.backendService
+            .textToSpeech(res, 'Clyde', true)
+            .subscribe((res) => {
+              this.playAudio(res.path);
+              this.audio = res.path;
+              if (res.lipsync) {
+                this.lipsync = res.lipsync;
+              }
+            });
         });
       });
     }

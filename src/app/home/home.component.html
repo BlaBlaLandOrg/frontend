@@ -1,8 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="openMenu()">
     <mat-icon>menu</mat-icon>
   </button>
   <span routerLink="/" class="logo">BlaBlaLand</span>
 </mat-toolbar>
 
+<button class="create" mat-button (click)="routeToCreateCharacter()">
+  Create your own
+</button>
 <router-outlet></router-outlet>

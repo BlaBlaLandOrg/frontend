@@ -17,6 +17,10 @@ import { HomeComponent } from './home/home.component';
 import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
 import { NgxMicRecorderModule } from 'ngx-mic-recorder';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatCardModule,
     NgxMicRecorderModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
