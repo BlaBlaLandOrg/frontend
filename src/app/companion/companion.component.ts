@@ -48,11 +48,12 @@ export class CompanionComponent {
         this.conversationService.chat(res.text).subscribe((res) => {
           this.companionText = res;
           this.backendService
-            .textToSpeech(res, 'Clyde', false) //this.companion.id === 1)
+            .textToSpeech(res, 'Clyde', true)
             .subscribe((res) => {
               // this.playAudio(res.bytes);
               this.audio = res.bytes;
               if (res.lipsync) {
+                console.log(res.lipsync);
                 this.lipsync = res.lipsync;
               }
             });
