@@ -10,6 +10,8 @@ export class CreateCompanionComponent {
   file: File;
   charName: string;
   charDescription: string;
+  loading = false;
+  success = false;
 
 
   constructor(private backendService: BackendService) { }
@@ -28,7 +30,8 @@ export class CreateCompanionComponent {
 
   submit() {
     if (this.charName && this.charDescription && this.file) {
-      this.backendService.createCharacter(this.charName, this.charDescription, this.file).subscribe(x => console.log(x));
+      this.loading = true;
+      this.backendService.createCharacter(this.charName, this.charDescription, this.file).subscribe(res => { this.loading = false; this.success = true });
     }
   }
 }

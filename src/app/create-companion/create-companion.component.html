@@ -1,4 +1,5 @@
-<div class="container">
+<mat-progress-bar [mode]="'indeterminate'" *ngIf="loading"></mat-progress-bar>
+<div class="container" *ngIf="!success">
   <h1 class="header mat-headline-4">Create your own Character</h1>
   <!-- <h1>Create your own Character</h1> -->
 
@@ -67,4 +68,9 @@
   >
     create
   </button>
+</div>
+
+<div class="container" *ngIf="success">
+  <h1 class="header mat-headline-5">Successfully created Character!</h1>
+  <button mat-raised-button color="primary" routerLink="/">Check it out</button>
 </div>

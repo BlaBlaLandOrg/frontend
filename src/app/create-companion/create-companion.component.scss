@@ -90,3 +90,8 @@
 ::ng-deep .mdc-text-field .mdc-text-field__input {
   caret-color: #f29e38 !important;
 }
+
+::ng-deep .mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: #f29e38 !important;
+  --mdc-linear-progress-track-color: #f29e3831 !important;
+}
