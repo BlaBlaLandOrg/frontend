@@ -21,6 +21,7 @@
 
 ## 📝 Table of Contents
 
+- [Backend Repository](#backend)
 - [Problem Statement](#problem_statement)
 - [Idea / Solution](#idea)
 - [Future Scope](#future_scope)
@@ -29,6 +30,13 @@
 - [Technology Stack](#tech_stack)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
+
+
+## 🖥️ Backend Repository <a name="backend"></a>
+
+The backend for this project is in a separate reposityory, you can find it here:
+
+https://github.com/BlaBlaLandOrg/backend/
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
