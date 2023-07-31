@@ -1,8 +1,26 @@
-<mat-toolbar>
-  <button mat-icon-button (click)="openMenu()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span routerLink="/" class="logo">BlaBlaLand</span>
-</mat-toolbar>
+<mat-drawer-container class="container" autosize>
+  <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span routerLink="/" class="logo">BlaBlaLand</span>
+  </mat-toolbar>
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <div class="sidenav-list">
+      <h1 routerLink="/" class="logo" (click)="drawer.close()">BlaBlaLand</h1>
+      <button mat-button routerLink="/" (click)="drawer.close()">
+        <mat-icon>list</mat-icon>Character Selection
+      </button>
+      <button mat-button routerLink="create" (click)="drawer.close()">
+        <mat-icon>create</mat-icon>Create your own Character
+      </button>
+      <button mat-button routerLink="about" (click)="drawer.close()">
+        <mat-icon>alternate_email</mat-icon>About us
+      </button>
+    </div>
+  </mat-drawer>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+
+  <span class="footnote">made by <a href="https://github.com/BlaBlaLandOrg">@BlaBlaLand</a></span>
+</mat-drawer-container>

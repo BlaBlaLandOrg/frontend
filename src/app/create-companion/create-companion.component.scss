@@ -22,13 +22,12 @@
   text-align: center;
 }
 
-
 ::ng-deep .mat-select-value {
   color: green !important;
 }
 
 ::ng-deep .mdc-list-item__primary-text {
-  color: white !important
+  color: white !important;
 }
 
 ::ng-deep .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
@@ -47,10 +46,21 @@
   background-color: #95bfa4 !important;
 }
 
-::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+::ng-deep
+  .mdc-text-field--focused:not(.mdc-text-field--disabled)
+  .mdc-floating-label {
   color: #f29e38 !important;
 }
 
 ::ng-deep div.mat-mdc-select-panel {
   background-color: #95bfa4 !important;
+}
+
+::ng-deep .mat-mdc-raised-button:not(:disabled) {
+  background-color: #f29e38 !important;
+}
+
+::ng-deep .mat-mdc-fab,
+.mat-mdc-mini-fab {
+  background-color: #f29e38 !important;
 }

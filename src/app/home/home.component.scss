@@ -3,10 +3,42 @@
 }
 
 mat-toolbar {
-  background-color: #333835;
+  background-color: #95bfa4;
 }
 
 .create {
   background-color: #95bfa4;
   color: white;
+}
+
+.container {
+  height: 100%;
+}
+
+.example-sidenav {
+  padding: 2rem;
+  width: 400px;
+  background-color: #95bfa4;
+}
+
+.sidenav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+
+  .logo {
+    color: #f29e38;
+  }
+}
+
+.footnote {
+  position: fixed;
+  right: 24px;
+  bottom: 8px;
+}
+
+::ng-deep .mat-drawer-container {
+  background-color: #fff8ee !important;
+  color: #333835 !important;
 }

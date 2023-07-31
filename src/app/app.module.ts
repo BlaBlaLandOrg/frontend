@@ -21,10 +21,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -56,9 +57,10 @@ import {MatSliderModule} from '@angular/material/slider';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
