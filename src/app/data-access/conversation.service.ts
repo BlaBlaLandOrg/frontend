@@ -17,7 +17,7 @@ export class ConversationService {
   initConversation() {
     this.history = [{
       role: 'system',
-      content: `${this.nameMap()} you can be described as ${this.currentCompanion.description}`
+      content: `${this.nameMap()} you can be described as ${this.characterMap()}`
     },
     {
       role: 'user',
