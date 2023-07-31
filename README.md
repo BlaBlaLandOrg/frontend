@@ -21,7 +21,7 @@
 
 ## 📝 Table of Contents
 
-- [Backend Repository](#backend)
+- [Additional Repositories](#repos)
 - [Problem Statement](#problem_statement)
 - [Idea / Solution](#idea)
 - [Future Scope](#future_scope)
@@ -32,11 +32,16 @@
 - [Acknowledgments](#acknowledgments)
 
 
-## 🖥️ Backend Repository <a name="backend"></a>
-
-The backend for this project is in a separate reposityory, you can find it here:
+## 🖥️ Additional Repositories <a name="repos"></a>
+Here you can find the other Repositories for this project:
+### Backend
 
 https://github.com/BlaBlaLandOrg/backend/
+
+### Proxy
+
+https://github.com/BlaBlaLandOrg/proxy/
+
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 
