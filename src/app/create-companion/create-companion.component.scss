@@ -27,8 +27,12 @@
   display: flex;
   margin-bottom: 1rem;
 
-  span {
+  .file-upload-text {
     margin: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -81,4 +85,8 @@
 ::ng-deep .mat-mdc-fab,
 .mat-mdc-mini-fab {
   background-color: #f29e38 !important;
+}
+
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  caret-color: #f29e38 !important;
 }

@@ -53,7 +53,7 @@
       >
         <mat-icon>attach_file</mat-icon>
       </button>
-      <span>{{
+      <span class="file-upload-text" (click)="fileUpload.click()">{{
         fileUpload.value.split("\\").pop() || "No file uploaded yet."
       }}</span>
     </div>
