@@ -3,11 +3,21 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span routerLink="/" class="logo">BlaBlaLand</span>
+    <img
+      routerLink="/"
+      src="assets/LogoSmall.png"
+      class="logo logo-small"
+      (click)="drawer.close()"
+    />
   </mat-toolbar>
   <mat-drawer #drawer class="example-sidenav" mode="over">
     <div class="sidenav-list">
-      <img  routerLink="/" src="assets/Logo.png" class="logo"  (click)="drawer.close()"/>
+      <img
+        routerLink="/"
+        src="assets/Logo.png"
+        class="logo"
+        (click)="drawer.close()"
+      />
       <button mat-button routerLink="/" (click)="drawer.close()">
         <mat-icon>list</mat-icon>Character Selection
       </button>
@@ -22,5 +32,7 @@
 
   <router-outlet></router-outlet>
 
-  <span class="footnote">made by <a href="https://github.com/BlaBlaLandOrg">@BlaBlaLand</a></span>
+  <span class="footnote"
+    >made by <a href="https://github.com/BlaBlaLandOrg">@BlaBlaLand</a></span
+  >
 </mat-drawer-container>
