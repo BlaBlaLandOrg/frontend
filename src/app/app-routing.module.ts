@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CompanionComponent } from './companion/companion.component';
 import { CompanionSelectComponent } from './companion-select/companion-select.component';
 import { CreateCompanionComponent } from './create-companion/create-companion.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', component: CompanionSelectComponent },
       { path: 'companion', component: CompanionComponent },
       { path: 'create', component: CreateCompanionComponent },
+      { path: 'about', component: AboutComponent },
     ],
   },
 ];

@@ -26,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     CompanionComponent,
     HomeComponent,
     SpeechBubbleComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
