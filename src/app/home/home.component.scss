@@ -28,7 +28,7 @@ mat-toolbar {
   gap: 2rem;
 
   .logo {
-    color: #f29e38;
+    width: 100%;
   }
 }
 
@@ -36,6 +36,7 @@ mat-toolbar {
   position: fixed;
   right: 24px;
   bottom: 8px;
+  opacity: 0.8;
 }
 
 ::ng-deep .mat-drawer-container {

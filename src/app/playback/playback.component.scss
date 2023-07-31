@@ -32,3 +32,7 @@
   height: 100%;
   width: auto;
 }
+
+::ng-deep .ngx-mic-recorder__start-stop .ngx-mic-recorder__start {
+  color: white !important;
+}
